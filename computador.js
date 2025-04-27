@@ -1,8 +1,7 @@
-function gerarEscolha() {
-    const opcoes = ['Pedra', 'Papel', 'Tesoura'];
-    const indice = Math.floor(Math.random() * opcoes.length);
-    return opcoes[indice];
-  }
-  
-  module.exports = { gerarEscolha };
+function gerarEscolhaAleatoria() {
+  // Gera um número aleatório entre 1 e 3
+  return Math.floor(Math.random() * 3) + 1;
+}
+
+module.exports = { gerarEscolhaAleatoria };
   

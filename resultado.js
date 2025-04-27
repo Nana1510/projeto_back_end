@@ -1,17 +1,15 @@
-function verificarResultado(escolhaUsuario, escolhaComputador) {
-    if (escolhaUsuario === escolhaComputador) {
-      return 'Empate!';
-    }
-  
-    if (
-      (escolhaUsuario === 'Pedra' && escolhaComputador === 'Tesoura') ||
-      (escolhaUsuario === 'Papel' && escolhaComputador === 'Pedra') ||
-      (escolhaUsuario === 'Tesoura' && escolhaComputador === 'Papel')
-    ) {
-      return ' Parabéns.Você ganhou!';
-    } else {
-      return 'Que pena.Você perdeu!';
-    }
+function determinarResultado(jogador, computador) {
+  if (jogador === computador) {
+    console.log('Deu empate!');
+  } else if (
+    (jogador === 1 && computador === 3) ||
+    (jogador === 2 && computador === 1) ||
+    (jogador === 3 && computador === 2)
+  ) {
+    console.log('Você ganhou!');
+  } else {
+    console.log('O computador ganhou!');
   }
-  
-  module.exports = { verificarResultado };
+}
+
+module.exports = { determinarResultado };

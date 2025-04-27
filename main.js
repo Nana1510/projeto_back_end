@@ -1,42 +1,29 @@
+const readlineSync = require('readline-sync');
 const opcoes = require('./opcoes');
 const computador = require('./computador');
 const resultado = require('./resultado');
 
-
 function jogar() {
-  console.log(`Seja Bem-Vindo ao jogo de Pedra,Papel e Tesoura!!\n`)
-  console.log('Escolha uma opção abaixo: \n');
-  console.log('1 - Pedra \n');
-  console.log('2 - Papel \n');
-  console.log('3 - Tesoura \n');
+  console.log('Bem-vindo ao jogo Pedra, Papel e Tesoura!\n');
 
-  
-  const readline = require('readline').createInterface({
-    input: process.stdin,
-    output: process.stdout
-  });
+  opcoes.exibirMenu();
 
-  readline.question('Digite o número da sua escolha: ', (resposta) => {
-    const escolhas = ['Pedra', 'Papel', 'Tesoura'];
-    const escolhaUsuario = escolhas[parseInt(resposta) - 1];
+  let escolhaJogador = readlineSync.question('\nDigite o numero da sua escolha: ');
+  escolhaJogador = parseInt(escolhaJogador);
 
-    if (!escolhaUsuario) {
-      console.log('Opção inválida. Tente novamente.');
-      readline.close();
-      return;
-    }
+  if (isNaN(escolhaJogador) || escolhaJogador < 1 || escolhaJogador > 3) {
+    console.log('Opção inválida. Tente de novo!');
+    return;
+  }
 
-    const escolhaComputador = computador.gerarEscolha();
+  const escolhaComputador = computador.gerarEscolhaAleatoria();
 
-    console.log(`Você escolheu: ${escolhaUsuario}`);
-    console.log(`Computador escolheu: ${escolhaComputador}`);
+  console.log(`\nVocê escolheu: ${opcoes.nomeDaEscolha(escolhaJogador)}`);
+  console.log(`Computador escolheu: ${opcoes.nomeDaEscolha(escolhaComputador)}\n`);
 
-    const resultadoJogo = resultado.verificarResultado(escolhaUsuario, escolhaComputador);
-    console.log(resultadoJogo);
-
-    readline.close();
-  });
+  resultado.determinarResultado(escolhaJogador, escolhaComputador);
 }
 
-
 jogar();
+
+
