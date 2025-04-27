@@ -32,3 +32,6 @@ O projeto foi estruturado em vários arquivos para garantir melhor organização
 - O computador gera uma escolha aleatória.
 - O resultado é exibido, informando quem venceu ou se houve empate.
 
+
+Link do Vídeo do projeto!
+https://youtu.be/lee7mO8j_0g
